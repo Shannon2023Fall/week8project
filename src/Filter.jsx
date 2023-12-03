@@ -3,23 +3,31 @@ import Accidents from './EScooterAccidents.json';
 
 
 export default function Filter() {
-    {/* Why this const[] needs to be inside of function not over it? */ }
+    
     const [crash, setCrash] = useState(Accidents);
     console.log(crash);
 
-    const filterCrash =(catCrash)=>{
-        const updateCrash = Accidents.filter((curCrash)=>{
-            return curCrash.gender === catCrash
+    const filterCrash =(driverCrash)=>{
+        const updateCrash = Accidents.filter((genderCrash)=>{
+            return genderCrash.gender === driverCrash
         });
         setCrash(updateCrash);
+    }
+
+    const sortCrash =(valCrash)=>{
+        const sortingCrash = driverCrash.sort(()=>{
+            
+        })
     }
 
     return (
         <div className="container mt-3 mb-5">
             <h2>Bochum EScooter Accidents reported on news from year 2022</h2>
-            <button type="button" class="btn btn-info me-3 mb-2" onClick={()=>setCrash(Accidents)}>All</button>
-            <button type="button" class="btn btn-info me-3 mb-2" onClick={()=>filterCrash("male")}>Male Driver</button>
-            <button type="button" class="btn btn-info me-3 mb-2"onClick={()=>filterCrash("female")}>Female Driver</button>
+            <button type="button" class="btn btn-primary me-3 mb-2" onClick={()=>setCrash(Accidents)}>All Reported</button>
+            <button type="button" class="btn btn-primary me-3 mb-2" onClick={()=>filterCrash("male")}>Male Driver</button>
+            <button type="button" class="btn btn-primary me-3 mb-2" onClick={()=>filterCrash("female")}>Female Driver</button>
+            <button type="button" class="btn btn-success me-3 mb-2">Sort by Age</button>
+            <button type="button" class="btn btn-success me-3 mb-2">Sort by Month</button>
 
             <div className="row">
                 {/* A map is the standard JavaScript function and also a type of data collection. It offers a fast searching of data. */}
