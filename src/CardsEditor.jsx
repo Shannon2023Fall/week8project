@@ -6,7 +6,15 @@ export default function Multifunction() {
     const [acciData, setAcciData] = useState(Accidents); // Set the initial display to full data
     console.log(acciData);
 
-// Project tasks of week 8
+// Project tasks of week 8 
+    const handleDelete = (id) => {
+      console.log("Delete", id);
+    // Filter OUT the card with the given id
+      const updatedAcciData = acciData.filter(acci => acci.id !== id);
+    // Update the state with the updatedAcciData
+    setAcciData(updatedAcciData);
+  };
+
     const handleEdit = (id) => {
       console.log("Edit", id);
       // Find the index of the card to be edited due to batch placed buttons
@@ -18,14 +26,20 @@ export default function Multifunction() {
       // Update the state with the updatedAcciData
       setAcciData(updatedAcciData);
     };
-
-    const handleDelete = (id) => {
-      console.log("Delete", id);
-      // Filter OUT the card with the given id
-      const updatedAcciData = acciData.filter(acci => acci.id !== id);
-      // Update the state with the updatedAcciData
-      setAcciData(updatedAcciData);
+    
+    const handleSave = (id) => {
+        const index = acciData.findIndex(acci => acci.id === id);
+        const updatedAcciData = [...acciData];
+        updatedAcciData[index].editable = false;
+        setAcciData(updatedAcciData);
     };
+
+    const handleCancel = (id) => {
+        const index = acciData.findIndex(acci => acci.id === id);
+        const updatedAcciData = [...acciData];
+        updatedAcciData[index].editable = false;
+        setAcciData(updatedAcciData);
+    };    
 
     return (
         <div className="container mt-3 mb-5">
@@ -55,17 +69,24 @@ export default function Multifunction() {
                             )}                            
                         </ul>
                         <div>
-                            <button type="button" class="btn btn-outline-dark  btn-sm me-2 mt-3" onClick={()=>handleEdit(acci.id)}>Edit</button>
-                            <button type="button" class="btn btn-outline-dark btn-sm me-2 mt-3" onClick={()=>handleDelete(acci.id)}>Delete</button>   
+                            {acci.editable ? (
+                                <>
+                            <button type="button" class="btn btn-outline-dark  btn-sm me-2 mt-3" onClick={()=>handleSave(acci.id)}>Save</button>
+                            <button type="button" class="btn btn-outline-dark btn-sm me-2 mt-3" onClick={()=>handleCancel(acci.id)}>Cancel</button>                                
+                                </>
+                            ) : (
+                                <>
+                                <button type="button" class="btn btn-outline-dark  btn-sm me-2 mt-3" onClick={()=>handleEdit(acci.id)}>Edit</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm me-2 mt-3" onClick={()=>handleDelete(acci.id)}>Delete</button>       
+                                </>
+                            )}
                         </div>
-
                     </div>
-
-                    </div>
+                </div>
 
                 ))}
-        </div>
+            </div>
 
         </div >
-    )
+    );
 }
