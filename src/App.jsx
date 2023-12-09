@@ -2,16 +2,17 @@ import React,{ useState } from 'react'
 import './App.css'
 import NewEditor from './NewEditor.jsx';
 import AddEvent from './AddEvent.jsx';
+import accidents from './EScooterAccidents.json';
 
-let nextId = 13;
+// let nextId = 13; // Not needed in this case
 export default function EventApp() {
     const [events, setEvents] = useState(accidents);
 
-    function handleAddEvent(gender, age, month){
+    function handleAddEvent(id, gender, age, month){
         setEvents([
             ...events,
             {
-                id: nextId++,
+                id: id,
                 gender: gender,
                 age: age,
                 month: month
