@@ -19,13 +19,13 @@ export default function Multifunction() {
         let filteredDrivers;
       
         if (filter === "All Reported") {
-          filteredDrivers = Accidents; // Take the current displayed data
+          filteredDrivers = Accidents; 
         } else {
-          filteredDrivers = acciData; // Accidents.filter((driverGender) => driverGender.gender === filter); //click handler -> filterGender()
+          filteredDrivers = acciData; // Take the current displayed cards
         }
       
         if (sortOption === "Sort by Age") {
-          filteredDrivers.sort((a, b) => a.age > b.age ? 1 : -1); // How does it work with just minus action
+          filteredDrivers.sort((a, b) => a.age > b.age ? 1 : -1); 
         //} else if (sortOption === "Sort by Month") { // Not necessary cause ID is resigned to time order
         //  filteredDrivers.sort((a, b) => a.month.localeCompare(b.month)); // .localCompare() method of String values returns a number indicating whether this string comes before, or after, or is the same as the given string in sort order.
         } else if (sortOption === "Sort by ID"){
