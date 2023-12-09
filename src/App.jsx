@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
-import Filter from './Filter'
+import multiFunctions from './MultiFunctions.jsx'
 
 export default function App() {
 
   return (
     <div>
-      <Filter />
+      <multiFunctions />
     </div>
   )
 }
