@@ -21,8 +21,8 @@ export default function Multifunction() {
 
     const handleDelete = (id) => {
       console.log("Delete", id);
-      // Filter out the card with the given id
-      const updatedAcciData = acciData.filter(acci => acci.id === id);
+      // Filter OUT the card with the given id
+      const updatedAcciData = acciData.filter(acci => acci.id !== id);
       // Update the state with the updatedAcciData
       setAcciData(updatedAcciData);
     };
