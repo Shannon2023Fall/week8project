@@ -44,9 +44,7 @@ export default function Multifunction() {
                                 <>
                                     <li class="list-group-item" ><input type="text" value={acci.gender} onChange={(e) => acci.gender = e.target.value} /></li>
                                     <li class="list-group-item" >Age <input type="number" value={acci.age} onChange={(e) => acci.age = e.target.value} /></li>
-                                    <li class="list-group-item" ><input type="text" value={acci.month} onChange={(e) => acci.month = e.target.value} /></li>
-                                
-                                
+                                    <li class="list-group-item" ><input type="text" value={acci.month} onChange={(e) => acci.month = e.target.value} /></li>                            
                                 </>
                             ) : (
                                 <>
