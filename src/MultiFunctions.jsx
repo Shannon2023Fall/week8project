@@ -14,7 +14,7 @@ export default function Multifunction() {
         });
         setAcciData(updateFilter);
     }
-
+// Core project tasks of week 7
     const sortFunc = (filter, sortOption) => {
         let filteredDrivers;
       
@@ -34,7 +34,16 @@ export default function Multifunction() {
       
         setAcciData(filteredDrivers);
       };
-      
+
+// Project tasks of week 8
+    const handleEdit = (id) => {
+      console.log("Edit", id);
+    };
+
+    const handleDelete = (id) => {
+      console.log("Delete", id);
+    };
+
     return (
         <div className="container mt-3 mb-5">
             <h2>Bochum EScooter Accidents reported on news from year 2022</h2>
@@ -57,6 +66,11 @@ export default function Multifunction() {
                             <li class="list-group-item" >Age {acci.age}</li>
                             <li class="list-group-item" >{acci.month}</li>
                         </ul>
+                        <div>
+                            <button type="button" class="btn btn-outline-dark  btn-sm me-2 mt-3" onClick={()=>handleEdit(acci.id)}>Edit</button>
+                            <button type="button" class="btn btn-outline-dark btn-sm me-2 mt-3" onClick={()=>handleDelete(acci.id)}>Delete</button>   
+                        </div>
+
                     </div>
 
                     </div>
