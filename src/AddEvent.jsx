@@ -8,31 +8,39 @@ export default function AddEvent({ onAddEvent }) {
 
     return (
       <>
+      <label> Add ID: 
         <input
-          placeholder="Add New ID"
+          placeholder="Year+Numbering"
           value={id}
           onChange={e => setId(e.target.value)}
         />
+      </label>
+      <label> Add Gender: 
         <input
-          placeholder="Add Gender"
+          placeholder="Male or Female"
           value={gender}
           onChange={e => setGender(e.target.value)}
         />
+      </label>
+      <label> Add Age: 
         <input
-          placeholder="Add Age"
+          placeholder="Integer Number"
           value={age}
           onChange={e => setAge(e.target.value)}
         />
+      </label>
+      <label> Add Month:
         <input
-          placeholder="Add Month"
+          placeholder="Month Name"
           value={month}
           onChange={e => setMonth(e.target.value)}
         />
+      </label>
         <button onClick={() => {
           setId(''); setGender(''); setAge(''); setMonth('');
           onAddEvent(id); onAddEvent(gender); onAddEvent(age); onAddEvent(month);
         }}>Add</button>
       </>
-    )
+    );
 }
 

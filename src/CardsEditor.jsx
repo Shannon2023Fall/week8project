@@ -41,6 +41,13 @@ export default function Multifunction() {
         setAcciData(updatedAcciData);
     };    
 
+    const handleChange = (id, field, value) => {
+        const index = acciData.findIndex(acci => acci.id === id);
+        const updatedAcciData = [...acciData];
+        updatedAcciData[index][field] = value;
+        setAcciData(updatedAcciData);
+    };
+
     return (
         <div className="container mt-3 mb-5">
             <h2>Bochum EScooter Accidents reported on news from year 2022</h2>
@@ -48,7 +55,7 @@ export default function Multifunction() {
             <div className="row">
                 {/* A map is the standard JavaScript function and also a type of data collection. It offers a fast searching of data. */}
                 {acciData.map((acci) => (
-                    <div className = "col-md-auto" >
+                    <div className = "col-md-auto" key={acci.id}> {/* Take ID as searching key */}
                     <div class="card" >
                         <div class="card-header">
                             <h6>ID {acci.id}</h6>
@@ -56,9 +63,9 @@ export default function Multifunction() {
                         <ul class="list-group list-group-flush">
                             {acci.editable ? (
                                 <>
-                                    <li class="list-group-item" ><input type="text" value={acci.gender} onChange={(e) => acci.gender = e.target.value} /></li>
-                                    <li class="list-group-item" >Age <input type="number" value={acci.age} onChange={(e) => acci.age = e.target.value} /></li>
-                                    <li class="list-group-item" ><input type="text" value={acci.month} onChange={(e) => acci.month = e.target.value} /></li>                            
+                                    <li class="list-group-item" ><input type="text" value={acci.gender} onChange={e => handleChange(acci.id, "gender", e.target.value)} /></li>
+                                    <li class="list-group-item" >Age <input type="number" value={acci.age} onChange={e => handleChange(acci.id, "age", e.target.value)} /></li>
+                                    <li class="list-group-item" ><input type="text" value={acci.month} onChange={e => handleChange(acci.id, "month", e.target.value)} /></li>                            
                                 </>
                             ) : (
                                 <>
