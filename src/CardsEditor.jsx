@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Accidents from './EScooterAccidents.json';
 
 
-export default function Multifunction() {
+export default function Multifunction({onAddEvent}) {
     const [acciData, setAcciData] = useState(Accidents); // Set the initial display to full data
     console.log(acciData);
 
@@ -47,6 +47,8 @@ export default function Multifunction() {
         updatedAcciData[index][field] = value;
         setAcciData(updatedAcciData);
     };
+
+ //   const onAddEvent = (event) => {}
 
     return (
         <div className="container mt-3 mb-5">

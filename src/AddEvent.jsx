@@ -6,6 +6,13 @@ export default function AddEvent({ onAddEvent }) {
     const [age, setAge] = useState('');
     const [month, setMonth] = useState('');
 
+    const handleAdd = () => {
+      setId('');
+      setGender(''); 
+      setAge(''); 
+      setMonth('');
+    }
+
     return (
       <>
       <label> Add ID: 
@@ -36,9 +43,9 @@ export default function AddEvent({ onAddEvent }) {
           onChange={e => setMonth(e.target.value)}
         />
       </label>
-        <button onClick={() => {
-          setId(''); setGender(''); setAge(''); setMonth('');
-          onAddEvent(id); onAddEvent(gender); onAddEvent(age); onAddEvent(month);
+        <button onClick={() => {const event = { id, gender, age, month };
+        handleAdd();
+        onAddEvent(event);
         }}>Add</button>
       </>
     );
